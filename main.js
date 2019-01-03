@@ -1,28 +1,26 @@
-//get modal element
-var modal = document.getElementById('simpleModal');
-//Get open modal button
-var modalBtn = document.getElementById('modal');
-//get close button
-var closeBtn = document.getElementsByClassName('closeBtn')[0];
+// Get DOM Elements
+const modal = document.querySelector('#my-modal');
+const modalBtn = document.querySelector('#modal-btn');
+const closeBtn = document.querySelector('.close');
 
-//listen for open click
-modelBtn.addEventListener('click', openModal);
-//listen for open click
+// Events
+modalBtn.addEventListener('click', openModal);
 closeBtn.addEventListener('click', closeModal);
-//listen for outside click
-window.addEventListener('click', clickOutside);
+window.addEventListener('click', outsideClick);
 
-//function to open modal
+// Open
 function openModal() {
-    modal.style.display = 'block';
+  modal.style.display = 'block';
 }
-//function to close modal
+
+// Close
 function closeModal() {
+  modal.style.display = 'none';
+}
+
+// Close If Outside Click
+function outsideClick(e) {
+  if (e.target == modal) {
     modal.style.display = 'none';
   }
-//function to close modal when outside box clicked
-function clickOutside(e){
-    if (e.target == modal) {
-    modal.style.display = 'none';
-}
 }
